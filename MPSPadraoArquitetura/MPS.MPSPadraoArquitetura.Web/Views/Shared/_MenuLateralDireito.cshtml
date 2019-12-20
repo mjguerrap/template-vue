@@ -1,0 +1,45 @@
+﻿<aside class="barralateral-direita tema-escuro" id="menu-lateral-direito-componente">
+    
+    <!-- Create the tabs -->
+    <ul class="nav nav-tabs nav-justified barralateral-direita-tabs">
+        <li class="nav-item"><a href="#barralateral-direita-home-tab" data-toggle="tab" class="nav-link active show"><i class="fas fa-link"></i></a></li>
+        <li class="nav-item"><a href="#barralateral-direita-settings-tab" data-toggle="tab" class="nav-link"><i class="fas fa-cogs"></i></a></li>
+    </ul>
+    
+    <!-- Tab panes -->
+    <div class="tab-content">
+        
+        <!-- Home tab content -->
+        <div class="tab-pane active" id="barralateral-direita-home-tab">
+            <h3 class="barralateral-direita-titulo">Endereços de Acessos</h3>
+            <ul class="barralateral-direita-menu">
+                @Html.GerarMenuDireitoMPS()
+            </ul>
+        </div>
+        
+        <!-- Settings tab content -->
+        <div class="tab-pane" id="barralateral-direita-settings-tab">
+            <h3 class="barralateral-direita-titulo">Configurações Gerais</h3>
+            <ul class="barralateral-direita-menu">
+                <li>
+                    <a href="#">
+                        <i class="menu-icone fas fa-lock"></i>
+                        <div class="menu-info">
+                            <p class="barralateral-direita-subtitulo">Alterar acesso</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="menu-icone fas fa-user-cog"></i>
+                        <div class="menu-info">
+                            <p class="barralateral-direita-subtitulo">Configurações</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</aside>
+

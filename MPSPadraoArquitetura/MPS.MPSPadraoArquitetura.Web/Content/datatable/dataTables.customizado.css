@@ -1,0 +1,53 @@
+﻿.item-ativo {
+    color: #337ab7;
+}
+
+.item-inativo {
+    color: #727272;
+    cursor: no-drop;
+}
+
+table.dataTable td,
+table.dataTable th {
+    color: #727272;
+    font-size: 15px;
+    padding: 5px;
+}
+
+    table.dataTable td > a,
+    table.dataTable th > a {
+        color: #007bff;
+        font-size: 15px;
+    }
+
+        table.dataTable td > a:hover,
+        table.dataTable th > a:hover {
+            color: #000;
+        }
+
+        table.dataTable td > a.item-inativo,
+        table.dataTable th > a.item-inativo {
+            color: #6c757d;
+            cursor: no-drop;
+        }
+
+div.dataTables_paginate ul.pagination {
+    font-size: 14px;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+table.dataTable tr.selected > td,
+table.dataTable tr.selected > th {
+    color: #fff;
+}
+
+.dataTables_scrollHeadInner {
+    width: 100% !important;
+}
+

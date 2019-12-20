@@ -1,0 +1,82 @@
+﻿<div class="modal fade" id="AlteracaoUnidadePanel" tabindex="-1" role="dialog" aria-labelledby="AlteracaoUnidadePanelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="AlteracaoUnidadePanelLabel">Alterar Unidade de Trabalho</h4>
+            </div>
+            
+            <div class="modal-body modal-unidade-trabalho" style="text-align: left">
+            
+                <!-- Informação da unidade aonde o usuário está alocado -->
+                <p>Você está alocado na unidade:</p>
+                <table class="table table-striped table-bordered" cellspacing="0" id="">
+                    <tbody>
+                        <tr>
+                            <td>
+                                Definir a implementação da unidade conforme a regra do sistema
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Campo para pesquisar -->
+                <p>Você está cedido ou cadastrado como substituto em outras unidades. Escolha abaixo a unidade em que deseja trabalhar nesse momento.</p>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <label for="pesquisarUnidade">Pesquisar:</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" aria-label="Pesquisar" aria-describedby="basic-addon2" style="font-size:12px; height: auto;">
+                                <div class="input-group-append">
+                                    <button class="btn input-group-text" type="button"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista de unidades do usuário -->
+                <table id="unidadeModal" class="table table-striped table-bordered table-hover modal-unidade-trabalho" cellspacing="0" style="font-size: 12px; width: 100%">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="font-size: 12px; padding-top: 8px;">Unidade</th>
+                            <th scope="col" style="font-size: 12px; padding-top: 8px;">Situação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a id="" href="" style="font-size: 13px;">Unidade X</a>
+                            </td>
+                            <td>
+                                <span id="" class="control-label">Cedido</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a id="" href="" style="font-size: 13px;">Unidade Y</a>
+                            </td>
+                            <td>
+                                <span id="" class="control-label">Cedido</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a id="" href="" style="font-size: 13px;">Unidade Z</a>
+                            </td>
+                            <td>
+                                <span id="" class="control-label">Cedido</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+

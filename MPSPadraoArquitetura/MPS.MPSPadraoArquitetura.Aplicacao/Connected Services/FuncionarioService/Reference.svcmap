@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="124b5cde-2e7d-4532-b2a1-e0c85e186335" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://tst01.tjsp.jus.br/RHF/SHFWebServices/Funcionarios/FuncionarioService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FuncionarioService.xsd" MetadataType="Schema" ID="a26558d4-71b1-4066-a6f6-fd73f3cc28d3" SourceId="1" SourceUrl="http://tst01.tjsp.jus.br/RHF/SHFWebServices/Funcionarios/FuncionarioService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FuncionarioService.disco" MetadataType="Disco" ID="8ab9749b-84a3-4280-9696-bf8bcf46ad77" SourceId="1" SourceUrl="http://tst01.tjsp.jus.br/RHF/SHFWebServices/Funcionarios/FuncionarioService.svc?disco" />
+    <MetadataFile FileName="FuncionarioService.wsdl" MetadataType="Wsdl" ID="b4cd04f0-acf0-46fd-b816-4b214bf66740" SourceId="1" SourceUrl="http://tst01.tjsp.jus.br/RHF/SHFWebServices/Funcionarios/FuncionarioService.svc?wsdl" />
+    <MetadataFile FileName="FuncionarioService1.xsd" MetadataType="Schema" ID="46d5b44b-07be-4296-b44c-be57218f05fc" SourceId="1" SourceUrl="http://tst01.tjsp.jus.br/RHF/SHFWebServices/Funcionarios/FuncionarioService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FuncionarioService2.xsd" MetadataType="Schema" ID="0447f850-a36e-4598-8710-72d24cc68a7c" SourceId="1" SourceUrl="http://tst01.tjsp.jus.br/RHF/SHFWebServices/Funcionarios/FuncionarioService.svc?xsd=xsd5" />
+    <MetadataFile FileName="FuncionarioService3.xsd" MetadataType="Schema" ID="7c78fe8b-eff6-4a47-820a-7aa5655c6a12" SourceId="1" SourceUrl="http://tst01.tjsp.jus.br/RHF/SHFWebServices/Funcionarios/FuncionarioService.svc?xsd=xsd3" />
+    <MetadataFile FileName="FuncionarioService4.xsd" MetadataType="Schema" ID="b398b9e0-6b18-4ec3-bd1c-d3ad84b5d9be" SourceId="1" SourceUrl="http://tst01.tjsp.jus.br/RHF/SHFWebServices/Funcionarios/FuncionarioService.svc?xsd=xsd6" />
+    <MetadataFile FileName="FuncionarioService5.xsd" MetadataType="Schema" ID="b76d4b77-6be0-4763-8769-5ad71badb115" SourceId="1" SourceUrl="http://tst01.tjsp.jus.br/RHF/SHFWebServices/Funcionarios/FuncionarioService.svc?xsd=xsd1" />
+    <MetadataFile FileName="FuncionarioService6.xsd" MetadataType="Schema" ID="befc0e7b-1689-489f-9f11-25e6e0ca83d5" SourceId="1" SourceUrl="http://tst01.tjsp.jus.br/RHF/SHFWebServices/Funcionarios/FuncionarioService.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

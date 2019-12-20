@@ -1,0 +1,30 @@
+﻿<div class="modal fade" id="modalPerfil" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h5 class="modal-title modal-perfil-titulo" id="mediumModalLabel">Meu Perfil</h5>
+            </div>
+            <div class="modal-body modal-perfil">
+                <p id="imagemFuncionario" class="perfil-imagem"></p>
+                <p class="perfil-nome">
+                    @HelperClaim.ObterMatricula()
+                </p>
+                <p class="perfil-nome">
+                    @HelperClaim.ObterNomeCompleto()
+                </p>
+                <p class="perfil-matricula">
+                    @Html.ObterCargoFuncionario()
+                </p>
+                <p class="perfil-matricula">
+                    @Html.ObterUnidadeFuncionario()
+                </p>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+

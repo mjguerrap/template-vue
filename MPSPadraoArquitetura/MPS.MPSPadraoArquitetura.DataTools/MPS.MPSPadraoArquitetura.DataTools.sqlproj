@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DataTools</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{cc34ac0d-799d-4c03-8f56-a5e760cb8784}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DataTools</RootNamespace>
+    <AssemblyName>DataTools</AssemblyName>
+    <ModelCollation>1033,CS</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Latin1_General_CS_AS</DefaultCollation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\PosDeploy" />
+    <Folder Include="Scripts\PreDeploy" />
+    <Folder Include="Scripts\PosDeploy\DadosBase" />
+    <Folder Include="Log" />
+    <Folder Include="Log\Tables" />
+    <Folder Include="Security" />
+    <Folder Include="Tipo" />
+    <Folder Include="Scripts\PosDeploy\DadosBase\Tipo" />
+    <Folder Include="Eventos" />
+    <Folder Include="Eventos\Tables" />
+    <Folder Include="LogErro" />
+    <Folder Include="LogErro\Stored Procedures" />
+    <Folder Include="LogErro\Tables" />
+    <Folder Include="Tipo\Tables\" />
+    <Folder Include="Scripts\PosDeploy\ScriptsTemporarios" />
+    <Folder Include="Scripts\PosDeploy\ScriptsTemporarios\Exemplo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Modelo_SqlSchemaCompare.scmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Log\Tables\AuditLogDetails.sql" />
+    <Build Include="Log\Tables\AuditLogs.sql" />
+    <Build Include="Log\Tables\LogMetadata.sql" />
+    <Build Include="Security\Logs.sql" />
+    <Build Include="Security\Tipo.sql" />
+    <None Include="Scripts\PosDeploy\DadosBase\Tipo\Inclusao_StatusRegistro.sql" />
+    <Build Include="Security\Eventos.sql" />
+    <Build Include="Eventos\Tables\NotificacoesDominio.sql" />
+    <Build Include="Security\LogsErro.sql" />
+    <Build Include="LogErro\Tables\ELMA_Error.sql" />
+    <Build Include="LogErro\Stored Procedures\ELMAH_GetErrorsXml.sql" />
+    <Build Include="LogErro\Stored Procedures\ELMAH_GetErrorXml.sql" />
+    <Build Include="LogErro\Stored Procedures\ELMAH_LogError.sql" />
+    <Build Include="Tipo\Tables\StatusRegistro.sql" />
+    <None Include="Scripts\PosDeploy\ScriptsTemporarios\Exemplo\ScriptExemplo.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\PosDeploy\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Scripts\PreDeploy\Script.PreDeployment.sql" />
+  </ItemGroup>
+</Project>

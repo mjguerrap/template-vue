@@ -1,0 +1,108 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erro - Arquitetura</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../Content/images/favicon.ico" />
+
+    <!--Bootstrap-->
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/fontawesome.min.css" rel="stylesheet" />
+    <link href="../Content/all.min.css" rel="stylesheet" />
+
+    <!--Layout base da arquitetura-->
+    <link href="../Content/mps.layoutbase.css" rel="stylesheet" />
+
+    <style>
+        @media (max-width: 767px) {
+            .conteudo-renderizado {
+                margin-top: 0;
+            }
+        }
+        @media (max-width: 1000px) {
+            .navbar {
+                height: 60px;
+            }
+        }
+        .conteudo-renderizado, .rodape {
+            margin-left: 0;
+        }
+        .conteudo-renderizado {
+            min-height: 79%;
+        }
+    </style>
+
+</head>
+<body>
+
+    <header class="cabecalho">
+        <nav class="navbar navbar-expand-lg">
+            <div class="navbar-collapse">
+
+                <div class="barra-superior-logo">
+                    <img src="../Content/Images/logotipo_cores_gradient.png">
+                    <span class="barra-superior-logo-titulo">Tribunal de Justiça</span>
+                    <span class="barra-superior-logo-subtitulo">Estado de São Paulo</span>
+                </div>
+                <div class="barra-superior-titulo">
+                    <span class="barra-superior-titulo-texto">
+                        MPSPadraoArquitetura
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="conteudo-renderizado">
+
+        <div class="breadcrumb">
+            <div class="col-sm-12">
+                <div class="titulo-pagina">Erro</div>
+                <ol class="caminhos-paginas">
+                    <li>
+                        <span class="item-fixo-breadcrumbs">Você esta em:</span>
+                        <a tabindex="1" href="http://MPSPadraoArquitetura.tjsp.jus.br/RHF/MPSPadraoArquitetura/" data-toggle="tooltip" data-placement="top" title="Página Inicial"><i class="fas fa-home"></i></a>
+                    </li>
+                    <li>Estático</li>
+                    <li class="selecionado">Erro</li>
+                </ol>
+            </div>
+        </div>
+
+        <section class="content container-fluid">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card shadow-sm">
+
+                        <div class="row erroBloco">
+                            <div class="col-sm-4 text-center">
+                                <p class="erroTipo">#erro</p>
+                                <i class="fas fa-exclamation-triangle erroSimbolo"></i>
+                            </div>
+                            <div class="col-sm-8 erroBloco">
+                                <p class="pb-3 erroTitulo">Erro não esperado</p>
+                                <p class=" pb-3 erroRed">Ocorreu um erro não esperado no sistema!</p>
+                                <p>Por favor, tente novamente ou entre em contato com o suporte da STI 7.2 – Coordenadoria de Sistemas de Recursos Humanos e da Saúde.</p>
+                                <hr />
+                                <p class="px-4 erroBut">
+                                    Sugerimos que você volte a página inicial do sistema.<br /><br />
+                                    <a class="btn btn-primary" href="http://MPSPadraoArquitetura.tjsp.jus.br/RHF/MPSPadraoArquitetura/"><i class="fas fa-home"></i> <span>Ir para página inicial</span></a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <footer class="rodape">
+        <p class="rodape-titulo"><a href="javascript:void(0)">Tribunal de Justiça do Estado de São Paulo </a>- Palácio da Justiça - Praça da Sé, s/n - São Paulo - SP - CEP01018-010</p>
+        <p class="rodape-titulo">Desenvolvido pela MPS Informática LTDA. em parceria com a <a href="javascript:void(0)">Secretaria de Tecnologia da Informação - STI </a></p>
+    </footer>
+</body>
+</html>

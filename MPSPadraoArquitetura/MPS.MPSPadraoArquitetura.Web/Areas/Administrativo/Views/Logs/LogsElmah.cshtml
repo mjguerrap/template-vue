@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Logs de Error (Elmah)";
+}
+
+<div class="breadcrumb">
+    <div class="col-sm-12">
+        <div class="titulo-pagina">Logs de Error (Elmah)</div>
+        <ol class="caminhos-paginas">
+            <li>Administrativo</li>
+            <li class="selecionado">Logs de Error (Elmah)</li>
+        </ol>
+    </div>
+</div>
+
+<script src="~/Scripts/views/areas/administrativo/logs/logsElmah.js"></script>
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+
+                    <iframe id="frameDemo" src="@Url.Content("~/Elmah.axd")" frameborder="0" scrolling="no" style="width:100%"></iframe>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

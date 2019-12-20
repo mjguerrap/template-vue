@@ -1,0 +1,178 @@
+﻿@model MPS.MPSPadraoArquitetura.Aplicacao.ViewModel.Areas.Administrativo.Pesquisa.PesquisaAuditLogViewModel
+
+@{
+    ViewBag.Title = "Logs de Registro (Audit)";
+}
+
+<div class="breadcrumb">
+    <div class="col-sm-12">
+        <div class="titulo-pagina">Logs de Registro (Audit)</div>
+        <ol class="caminhos-paginas">
+            <li>Administrativo</li>
+            <li class="selecionado">Logs de Registro (Audit)</li>
+        </ol>
+    </div>
+</div>
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+
+                    @using (Ajax.BeginForm("Pesquisar", "Logs", new AjaxOptions() { HttpMethod = "POST", OnSuccess = "OnSuccess", OnFailure = "OnFailure" }, new { id = "formPesquisa", @class = "form", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-row">
+                            <div class="form-group col-sm-12">
+                                <label for="dllEntidade">Entidade</label>
+                                @Html.DropDownListFor(x => x.EntidadeSelecionada, new SelectList(Model.ListaEntidadeLog), "Selecione...", new { id = "dllEntidade", @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-sm-12 col-md-3">
+                                <label for="matricula">Matrícula</label>
+                                @Html.TextBoxFor(x => x.Usuario, new { id = "matricula", autocomplete = "off", placeholder = "Matrícula...", @class = "form-control", maxlength = "7" })
+                            </div>
+                            <div class="form-group col-sm-12 col-md-3">
+                                <label for="ddlTipoOperacao">Tipo Operação</label>
+                                @Html.DropDownListFor(x => x.EnumOpercaoAuditViewModel.TipoOpercaoId, new SelectList(Model.EnumOpercaoAuditViewModel.TipoOpercaoSelecionar, "key", "value"), new { @class = "form-control", id = "ddlTipoOperacao" })
+                            </div>
+
+                            <div class="form-group col-sm-12 col-md-6">
+                                <label for="pesquisaDataInicio">Período do Evento</label>
+
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <div class="input-group col-sm-12 col-md-6">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="">De</span>
+                                            </div>
+                                            @Html.TextBoxFor(x => x.PesquisaDataInicio, new { id = "pesquisaDataInicio", autocomplete = "off", placeholder = "dd/mm/aaaa", @class = "form-control datetimepicker-input", data_toggle = "datetimepicker", data_target = "#pesquisaDataInicio" })
+                                        </div>
+                                        <div class="input-group col-sm-12 col-md-6">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="">Até</span>
+                                            </div>
+                                            @Html.TextBoxFor(x => x.PesquisaDataFim, new { id = "pesquisaDataFim", autocomplete = "off", placeholder = "dd/mm/aaaa", @class = "form-control datetimepicker-input", data_toggle = "datetimepicker", data_target = "#pesquisaDataFim" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-right">
+                            <a href="@Url.Action("LogsAudit", "Logs", new { pesquisa = "" })" class="btn btn-sm btn-info">
+                                <i class="fas fa-eraser"></i> Limpar
+                            </a>
+
+                            <button class="btn btn-sm btn-primary" type="button" id="btnPesquisar" onclick="return pesquisar();">
+                                <i class="fas fa-search"></i> Pesquisar
+                            </button>
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+
+            <div id="divTabela" class="card shadow-sm mb-3" style="display: none">
+                <div class="card-body">
+                    <table class="table table-striped table-bordered table-sm widthCemPorcento" id="tabelaResultado">
+                        <thead>
+                            <tr>
+                                <th>Ações</th>
+                                <th>Usuário</th>
+                                <th>Data Evento</th>
+                                <th>Operação</th>
+                                <th>Entidade</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="modal-detalhes" tabindex="-1" role="dialog" aria-labelledby="tabelaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="tabelaModalLabel">Detalhes do Registro</h4>
+            </div>
+            <div class="modal-body">
+
+                <table class="table table-striped table-bordered table-sm widthCemPorcento" id="tabelaDetalhes">
+                    <thead>
+                        <tr>
+                            <th>Propriedade</th>
+                            <th>Valor Anterior</th>
+                            <th>Valor Atual</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-metadata" tabindex="-1" role="dialog" aria-labelledby="tabelaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="tabelaModalLabel">Detalhes do Metadata</h4>
+            </div>
+            <div class="modal-body">
+
+                <table class="table table-striped table-bordered table-sm widthCemPorcento" id="tabelaMetadata">
+                    <thead>
+                        <tr>
+                            <th>Chave</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ScriptsValidate
+{
+    @Scripts.Render("~/bundles/unobtrusive")
+}
+
+@section style
+{
+    @Styles.Render("~/bundlescontent/datatable")
+    @Styles.Render("~/bundlescontent/datetimepicker")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/datatable")
+    @Scripts.Render("~/bundles/datetimepicker")
+    <script src="~/Scripts/views/areas/administrativo/logs/logsAudit.js"></script>
+}

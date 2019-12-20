@@ -1,0 +1,57 @@
+﻿.bootstrap-switch span::before {
+    content: normal; /*Ajuste para o Internet Explorer 11*/
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on, .bootstrap-switch .bootstrap-switch-handle-off, .bootstrap-switch .bootstrap-switch-label {
+    display: table-cell !important; /*Ajuste para o Internet Explorer 11*/
+}
+
+.bootstrap-switch.bootstrap-switch-focused {
+    border-color: #b5b5b5;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(108, 117, 125, 0.5);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(108, 117, 125, 0.5);
+}
+
+.bootstrap-switch:hover {
+    border-color: #b5b5b5;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary,
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary {
+    background-color: #007bff;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-danger,
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-danger {
+    background-color: #dc3545;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-success,
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success {
+    background-color: #28a745;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-info,
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-info {
+    background-color: #17a2b8;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-warning,
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.bootstrap-switch .bootstrap-switch-label {
+    color: #495057;
+}
+
+.bootstrap-switch {
+    border: 1px solid #ced4da;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-off,
+.bootstrap-switch .bootstrap-switch-handle-on,
+.bootstrap-switch .bootstrap-switch-label {
+    padding: 5px 12px;
+}

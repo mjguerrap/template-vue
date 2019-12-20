@@ -1,0 +1,137 @@
+﻿.dz-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 280px;
+    border: none;
+    border-radius: .25rem;
+    background: #f7f7f7;
+    transition: .4s;
+}
+
+    .dz-box:hover {
+        background: #e4e4e4;
+    }
+
+    .dz-box.dz-drag-hover {
+        background: #dedede;
+        border: none;
+    }
+
+    .dz-box .dz-message {
+        width: 100%;
+        transition: .4s;
+        color: #727272;
+    }
+
+    .dz-box.dz-drag-hover .dz-message {
+        opacity: 0.7;
+    }
+
+    .dz-box.dz-iniciado .dz-message {
+        display: none;
+    }
+
+    .dz-box .dz-preview.dz-image-preview {
+        background: transparent;
+    }
+
+    .dz-box .dz-preview:hover .dz-image img {
+        -webkit-filter: blur(8px) brightness(110%);
+        filter: blur(8px) brightness(110%);
+    }
+
+    .dz-box .dz-preview .dz-image, .dz-box .dz-preview.dz-file-preview .dz-image {
+        border-radius: .25rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        background: #fff;
+        border: solid 1px #e4e4e4;
+    }
+
+    .dz-box .dz-preview .dz-details .dz-filename span, .dz-box .dz-preview .dz-details .dz-size span {
+        padding: 0.1rem 0.5rem;
+    }
+
+.dz-btn {
+    margin-bottom: 0.75rem;
+}
+
+.dz-box .dz-icon {
+    width: 100%;
+    opacity: .2;
+    font-size: 80px;
+}
+
+.dz-box .dz-preview .dz-remove {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 25px;
+    width: 25px;
+    background-image: url(/RHF/ControleWCF/Content/Images/close-dz-file.svg);
+    background-size: 13px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: center;
+    border: solid 2px transparent;
+    overflow: hidden;
+    color: transparent;
+    z-index: 30;
+    transition: .2s;
+}
+
+    .dz-box .dz-preview .dz-remove:hover,
+    .dz-box .dz-preview .dz-remove:focus {
+        /*background-image: url(/RHF/ControleWCF/Content/Images/close-dz-file-hover.svg);*/
+        background-color: #fff;
+        background-image: url(/RHF/ControleWCF/Content/Images/close-dz-file-hover.svg);
+        border-color: #c82333;
+        border-radius: 50%;
+    }
+
+/* Classe do elemento "visualizar arquivo" */
+
+.dz-viewfile {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 5px;
+    right: 35px;
+    z-index: 100;
+    font-size: 1rem;
+    cursor: pointer !important;
+    color: #007bff;
+    border: 2px solid transparent;
+    transition: .2s;
+}
+
+    .dz-viewfile span {
+        cursor: pointer !important;
+    }
+
+    .dz-viewfile:hover {
+        color: #0069d9;
+        border: 2px solid #0069d9;
+        border-radius: 50%;
+        background-color: #fff;
+    }
+
+
+@media (min-width: 576px) {
+    .dz-box {
+        justify-content: flex-start;
+    }
+}
+
+/* Classes para customização de cores para Ícones*/
+.dz-success-mark path {
+    fill: green;
+}
+
+.dz-error-mark path {
+    fill: red;
+}

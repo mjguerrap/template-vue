@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>@ViewBag.Title - MPSPadraoArquitetura</title>
+
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/images/favicon.ico" />
+
+    <!--Bootstrap-->
+    @Styles.Render("~/bundlescontent/bootstrap")
+
+    <!--Mps Layout - Arquitetura-->
+    @Styles.Render("~/bundlescontent/estilobase")
+
+    <!--Icones e Fonts-->
+    @Styles.Render("~/bundlescontent/icones")
+
+    <!--Toastr-->
+    @Styles.Render("~/bundlescontent/toaster")
+
+    <!--Highlight-->
+    @Styles.Render("~/bundlescontent/codeformat")
+
+    <!--JQuery-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!--Datatable-->
+    @Styles.Render("~/bundlescontent/datatable")
+
+    <!--datetimepicker-->
+    @Styles.Render("~/bundlescontent/datetimepicker")
+
+    <!--Renderização da Sessão-->
+    @RenderSection("style", required: false)
+    @RenderSection("ScriptsValidate", required: false)
+
+    <!-- Deixar no HEAD os caminhos abaixos -->
+    <script type="text/javascript">
+        var servidor = "@HelperClaim.ObterMatricula()";
+        var caminhoAPI = "@ConfigurationManager.AppSettings["WebApi"]";
+        var caminhoWebSite = "@Url.Action("Index", "Home", new { area = "" })";
+        var caminhoPortalServidor = "@ConfigurationManager.AppSettings["APIPORTALSERVIDOR"]";
+    </script>
+
+</head>
+<body class="tema-escuro barralateral-mini">
+
+    <!-- Estutura do Sistema -->
+    <div class="estrutura">
+
+        <!-- Cabeçalho -->
+        <header class="cabecalho">
+
+            <!-- Nome do Cliente -->
+            <a href="@Url.Action(" Index", "Home" , new { area="" })" class="logo">
+                <!-- Nome do cliente para o menu fechado (maximo 50x50 pixels) -->
+                <span class="logo-mini"></span>
+                <!-- Nome do cliente para o menu aberto -->
+                <span class="logo-lg">Tribunal de Justiça SP</span>
+                <!-- Nome do sistema para dispositivos mobiles -->
+                <span class="logo-mobile">MPSPadraoArquitetura</span>
+            </a>
+
+            <!-- Barra de Navegação -->
+            <nav class="navbar navbar-expand-lg">
+                <div class="navbar-collapse">
+
+                    <!-- Botão de abrir e fechar menu esquerdo -->
+                    <a class="botao-abrir-fechar-menu-esquerdo" href="" data-toggle="push-menu" role="button"><i class="fa fa-bars"></i></a>
+
+                    <!-- Botão de abrir e fechar menu esquerdo - versão para mobile -->
+                    <a class="btn-abrir-fechar-menu-esquerdo-mobile" href="" data-toggle="push-menu" role="button"><i class="fa fa-bars"></i></a>
+
+                    <!-- Logo, título e subtítulo do cliente -->
+                    <div class="barra-superior-logo">
+                        <img src="~/Content/Images/logotipo_cores_gradient.png" />
+                        <span class="barra-superior-logo-titulo">Tribunal de Justiça</span>
+                        <span class="barra-superior-logo-subtitulo">Estado de São Paulo</span>
+                    </div>
+
+                    <div class="barra-superior-titulo">
+                        <span class="barra-superior-titulo-texto">
+                            MPSPadraoArquitetura
+                        </span>
+                    </div>
+
+                    <!-- Menu superior - Navegação -->
+                    <ul class="navbar-nav mr-auto"></ul>
+                    <ul class="navbar-nav float-right navbar-customizada">
+                        <li class="nav-item dropdown botao-aviso" id="botao-acessibilidade">
+                            <a class="nav-link" href="javascript:void(0)" id="navbarDropdownAcessibilidade" role="button" data-toggle="modal" data-target="#acessibilidade" aria-haspopup="true" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><ellipse cx="256" cy="80" rx="48" ry="48"></ellipse><path d="M424 144H88c-13.3 0-24 10.7-24 24s10.7 24 24 24h98.5c5.6 1 13.2 3.8 17.2 14.2 4.7 12.1 2.4 33.6-.5 51.7l-3.8 21.4c0 .1 0 .2-.1.3l-30.4 172.2c-2.3 13 6.4 25.5 19.5 27.8 13.1 2.3 25.3-6.4 27.6-19.5l21-119.9v.2s6.2-32.5 18.5-32.5h1.1c12.5 0 18.5 32.5 18.5 32.5v-.1l21 119.9c2.3 13 14.7 21.7 27.7 19.4 13.1-2.3 21.7-14.8 19.4-27.8l-30.4-172.2c0-.1 0-.2-.1-.3l-3.8-21.4c-2.9-18.1-5.2-39.6-.5-51.7 4-10.4 11.6-13.2 17.2-14.2H424c13.3 0 24-10.7 24-24s-10.7-24-24-24z"></path></svg>
+                            </a>
+                        </li>
+
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li class="nav-item dropdown barra-superior-dropdown-usuario" id="botao-usuario">
+                                <a class="" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @Html.ObterFotoFuncionario(@Url.Action("Index", "Home", new { area = "" }))
+                                </a>
+                                <div class="dropdown-menu dropdown-arrow dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#modalPerfil"><i class="fa fa-user"></i>Meu Perfil</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-cog"></i>Configurações</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="@Url.Action("Sair","Home", new { area = "" })"><i class="fa fa-power-off"></i>Sair</a>
+                                </div>
+                            </li>
+
+                            <!-- Botão de abrir e fechar menu direito -->
+                            <li class="nav-item botao-abrir-fechar-menu-direito">
+                                <a class="nav-link" href="javascript:void(0)" data-toggle="control-sidebar" id="btn-menu-direito"><i class="fa fa-ellipsis-v"></i></a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="botao-aviso" id="botao-login">
+                                <a class="mb-0" href="@Url.Action("Index", "Home", new { area = "" })" id="navbarLogin" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox=" -110 -160 768 768"><path d="M416 448h-84c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h84c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32h-84c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h84c53 0 96 43 96 96v192c0 53-43 96-96 96zm-47-201L201 79c-15-15-41-4.5-41 17v96H24c-13.3 0-24 10.7-24 24v96c0 13.3 10.7 24 24 24h136v96c0 21.5 26 32 41 17l168-168c9.3-9.4 9.3-24.6 0-34z" /></svg><p class="txt-login mb-0 mt-0">ENTRAR</p>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+
+                    <!-- Botão de abrir e fechar menu direito - versão mobile -->
+                    <a class="btn-abrir-fechar-menu-direito-mobile" href="javascript:void(0)" data-toggle="control-sidebar" id="btn-menu-direito"><i class="fa fa-ellipsis-v"></i></a>
+
+                </div>
+            </nav>
+        </header>
+
+        @Html.Partial("~/Views/Shared/_MenuLateralEsquerdo.cshtml")
+
+        <!-- Menu Lateral Direito -->
+        @if (Request.IsAuthenticated)
+        {
+            @Html.Partial("~/Views/Shared/_MenuLateralDireito.cshtml")
+        }
+
+        <!--Item Necessário para deixar o fundo do menu igual o menu esquerdo-->
+        <div class="menu-direito"></div>
+
+        <!--Conteudo Renderizado do Sistema-->
+        <div class="conteudo-renderizado">
+
+            @Html.BreadCrumbTemplate(this.Request.RequestContext, 2, true)
+
+            <section class="container-fluid">
+                @RenderBody()
+            </section>
+        </div>
+
+        <!--Rodape do Sistema-->
+        <footer class="rodape">
+            <p class="rodape-titulo"><a href="javascript:void(0)">Tribunal de Justiça do Estado de São Paulo </a>- Palácio da Justiça - Praça da Sé, s/n - São Paulo - SP - CEP01018-010</p>
+            <p class="rodape-titulo">Desenvolvido pela MPS Informática LTDA. em parceria com a <a href="javascript:void(0)">Secretaria de Tecnologia da Informação - STI </a></p>
+            <p class="rodape-versao">Versão - @VersaoSistemaHelper.VersaoSistema()</p>
+        </footer>
+    </div>
+
+    <!--Botão Voltar ao Topo-->
+    <div class="smoothscroll-top" data-smoothscroll="true">
+        <span class="scroll-top-inner">
+            <i class="fa fa-2x fa-arrow-circle-up" title="Voltar ao topo da página"></i>
+        </span>
+    </div>
+
+    <!--Scripts-->
+    <!--Bootstrap-->
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <!--Plugins(momentoJs/Respond)-->
+    @Scripts.Render("~/bundles/plugins")
+
+    <!--Toastr-->
+    @Scripts.Render("~/bundles/toaster")
+
+    <!--Highlight-->
+    @Scripts.Render("~/bundles/highlight")
+
+    <!--Mps Layout JS-->
+    @Scripts.Render("~/bundles/base")
+
+    <!--Utilitários-->
+    @Scripts.Render("~/bundles/Utilitario")
+
+    <!--Datatable-->
+    @Scripts.Render("~/bundles/datatable")
+
+    <!--datetimepicker-->
+    @Scripts.Render("~/bundles/datetimepicker")
+
+    <!--Renderização da Sessão-->
+    @RenderSection("scripts", required: false)
+
+    <!-- Modais -->
+    @Html.Partial("~/Views/Shared/_ModalCarregando.cshtml")
+    @Html.Partial("~/Views/Shared/_ModalAcessibilidade.cshtml")
+
+    @if (Request.IsAuthenticated)
+    {
+        @Html.Partial("~/Views/Shared/_ModalMeuPerfil.cshtml")
+        @Html.Partial("~/Views/Shared/_ModalLocalTrabalho.cshtml")
+    }
+
+</body>
+</html>

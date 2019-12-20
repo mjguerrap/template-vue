@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Página não autorizada";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card shadow-sm">
+
+            <div class="row erroBloco">
+                <div class="col-sm-4 text-center">
+                    <i class="fas fa-lock erroLock"></i><br /><br />
+                    <i class="fas fa-exclamation-triangle erroSimbolo"></i>
+                </div>
+                <div class="col-sm-8 erroBloco">
+                    <p class="pb-3 erroTitulo">Página não autorizada.</p>
+                    <p class=" pb-3 erroRed">Entre em contato com o suporte.</p>
+                    <hr />
+                    <p class="px-4 erroBut">
+                        Sugerimos que você volte a página inicial do sistema.<br /><br />
+                        <a class="btn btn-primary" href="@Url.Action("Index", "Home", new { area = "" })"><i class="fas fa-home"></i> <span>Ir para página inicial</span></a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

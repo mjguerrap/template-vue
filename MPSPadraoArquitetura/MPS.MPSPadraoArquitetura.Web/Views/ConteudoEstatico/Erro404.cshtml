@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Erro 404";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card shadow-sm" style="height:auto;">
+
+            <div class="row erroBloco">
+                <div class="col-sm-4 text-center">
+                    <p class="erroTipo">404</p>
+                    <i class="fas fa-exclamation-triangle erroSimbolo"></i>
+                </div>
+                <div class="col-sm-8 erroBloco">
+                    <p class="pb-3 erroTitulo">Página não encontrada</p>
+                    <p class=" pb-3 erroRed">A página que você está tentando acessar não existe neste servidor.</p>
+                    <p>Possiveis razões para isso:</p>
+                    <ul>
+                        <li>A página pode ter sido movida ou <em>deletada</em>.</li>
+                        <li>Você pode ter utilizado um <em>link</em> desatualizado ou quebrado.</li>
+                        <li>Você pode ter digitado o endereço (URL) errado.</li>
+                    </ul>
+                    <hr />
+                    <p class="px-4 erroBut">
+                        Sugerimos que você volte a página inicial do sistema.<br /><br />
+                        <a class="btn btn-primary" href="@Url.Action("Index", "Home", new { area = "" })"><i class="fas fa-home"></i> <span>Ir para página inicial</span></a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

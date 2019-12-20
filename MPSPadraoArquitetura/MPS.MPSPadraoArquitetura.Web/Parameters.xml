@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <!-- connectionStrings -->
+  <parameter name="DefaultConnection" defaultValue="__DefaultConnection__">
+    <parameterEntry kind="XMLFile" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" scope="\\web.config$"/>
+  </parameter>
+  <!-- appSettings -->
+  <parameter name="Release" defaultvalue="__Release.ReleaseName__">
+    <parameterentry kind="XmlFile" match="/configuration/appSettings/add[@key='Release']/@value" scope="\\web.config$" />
+  </parameter>
+  <parameter name="UsuarioMPS" defaultvalue="__UsuarioMPS__" >
+    <parameterentry kind="XmlFile" match="/configuration/appSettings/add[@key='UsuarioMPS']/@value" scope="\\web.config$" />
+  </parameter>
+  <parameter name="WebApi" defaultvalue="__WebApi__">
+    <parameterentry kind="XmlFile" match="/configuration/appSettings/add[@key='WebApi']/@value" scope="\\web.config$" />
+  </parameter>
+  <parameter name="FederationMetadata" defaultvalue="__FederationMetadata__">
+    <parameterentry kind="XmlFile" match="/configuration/appSettings/add[@key='FederationMetadata']/@value" scope="\\web.config$" />
+  </parameter>
+  <parameter name="Realm" defaultvalue="__Realm__">
+    <parameterentry kind="XmlFile" match="/configuration/appSettings/add[@key='Realm']/@value" scope="\\web.config$" />
+  </parameter>
+  <parameter name="SlidingExpirationTime" defaultvalue="__SlidingExpirationTime__">
+    <parameterentry kind="XmlFile" match="/configuration/appSettings/add[@key='SlidingExpirationTime']/@value" scope="\\web.config$" />
+  </parameter>
+  <parameter name="UrlSair" defaultvalue="__UrlSair__">
+    <parameterentry kind="XmlFile" match="/configuration/appSettings/add[@key='UrlSair']/@value" scope="\\web.config$" />
+  </parameter>
+  <parameter name="APISSO" defaultvalue="__APISSO__">
+    <parameterentry kind="XmlFile" match="/configuration/appSettings/add[@key='APISSO']/@value" scope="\\web.config$" />
+  </parameter>
+  <parameter name="APIMENU" defaultvalue="__APIMENU__">
+    <parameterentry kind="XmlFile" match="/configuration/appSettings/add[@key='APIMENU']/@value" scope="\\web.config$" />
+  </parameter>
+  <parameter name="APIPORTALSERVIDOR" defaultvalue="__APIPORTALSERVIDOR__">
+    <parameterentry kind="XmlFile" match="/configuration/appSettings/add[@key='APIPORTALSERVIDOR']/@value" scope="\\web.config$" />
+  </parameter>
+  <parameter name="ChaveBanco" defaultvalue="__ChaveBanco__">
+    <parameterentry kind="XmlFile" match="/configuration/appSettings/add[@key='ChaveBanco']/@value" scope="\\web.config$" />
+  </parameter>
+  <!-- system.serviceModel -->
+  <parameter name="FuncionarioServiceIFuncionarioService" defaultValue="__FuncionarioServiceIFuncionarioService__">
+    <parameterEntry kind="XMLFile" match="/configuration/system.serviceModel/client/endpoint[@contract='FuncionarioService.IFuncionarioService']/@address" scope="\\web.config$"/>
+  </parameter>
+</parameters>

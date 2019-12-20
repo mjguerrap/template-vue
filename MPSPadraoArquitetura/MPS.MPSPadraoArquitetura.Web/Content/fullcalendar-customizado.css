@@ -1,0 +1,233 @@
+﻿/**** Full Calendar Pesonalizado ****/
+/* Estilo e cor das bordas e campos da agenda*/
+.fc .table-bordered th, .fc .table-bordered td, .fc .table-bordered thead, .fc .table-bordered tbody, .table-bordered .fc-divider, .table-bordered .fc-row, .table-bordered .fc-content, .table-bordered .fc-popover, .table-bordered .fc-list-view, .table-bordered .fc-list-heading td {
+    border-color: #c0c0c0;
+}
+
+    .fc .table-bordered td.fc-today {
+        background: #d1ecf1;
+    }
+
+.fc .table-bordered .fc-day-header {
+    border-color: transparent;
+    text-align: right;
+}
+
+.fc .table-bordered .fc-head-container {
+    border-color: transparent;
+    border-bottom-color: #c0c0c0;
+    border-bottom-width: 1px;
+}
+
+.fc .fc-head-container .fc-axis {
+    border-color: transparent;
+}
+
+/* Cores dos eventos pré-definidas*/
+.fc-event {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+}
+
+.fc-primary {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    color: #fff !important;
+}
+
+.fc-danger {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: #fff !important;
+}
+
+.fc-secondary {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: #fff !important;
+}
+
+.fc-success {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: #fff !important;
+}
+
+.fc-info {
+    background-color: #17a2b8 !important;
+    border-color: #17a2b8 !important;
+    color: #fff !important;
+}
+
+.fc-warning {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+.fc-primary .fc-event-dot, .fc-danger .fc-event-dot, .fc-secondary .fc-event-dot, .fc-info .fc-event-dot, .fc-success .fc-event-dot {
+    background-color: #fff;
+}
+
+.fc-warning .fc-event-dot {
+    background-color: #212529;
+}
+
+/* Altura mínima do calendário */
+.fc-scroller {
+    min-height: 200px;
+}
+
+/* Estilo dos textos */
+.fc-left {
+    width: 100%;
+}
+
+.fc-header-toolbar h2 {
+    font-size: 1.125rem;
+    padding: .25rem 0;
+    width: 100%;
+}
+
+.fc-day-header, .fc-day-number {
+    font-size: .875rem;
+}
+
+.fc-past {
+    color: #c0c0c0;
+    background-color: #fcfcfc;
+}
+
+.fc-time-grid-event.fc-short .fc-content {
+    text-overflow: ellipsis;
+}
+
+.fc-event,
+a:not([href]):not([tabindex]).fc-event,
+.fc-event:hover,
+a:not([href]):not([tabindex]).fc-event:hover {
+    color: #fff;
+}
+
+/* Modificação nos Botões */
+.fc-header-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.fc-clear {
+    display: none;
+}
+
+.fc-state-default {
+    color: #fff;
+    box-shadow: none;
+    text-shadow: none;
+    background: #6c757d;
+    border-color: #6c757d;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.fc-center .fc-state-default {
+    font-size: .625rem;
+}
+
+.fc-center {
+    margin-top: .25rem;
+    margin-left: .25rem;
+}
+
+.fc-today-button, .fc-next-button {
+    margin-left: .25rem !important;
+}
+
+.fc button {
+    font-size: .875rem;
+    line-height: 1.5;
+}
+
+.fc .btn-primary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+    .fc .btn-primary:not(:disabled):not(.disabled).active,
+    .fc .btn-primary:not(:disabled):not(.disabled):active {
+        color: #fff;
+        background-color: #5a6268;
+        border-color: #545b62;
+    }
+
+    .fc .btn-primary:hover {
+        color: #fff;
+        background-color: #5a6268;
+        border-color: #545b62;
+    }
+
+    .fc .btn-primary.focus,
+    .fc .btn-primary:focus,
+    .fc .btn-primary:not(:disabled):not(.disabled).active:focus,
+    .fc .btn-primary:not(:disabled):not(.disabled):active:focus {
+        box-shadow: 0 0 0 0.2rem rgba(108,117,125,.5);
+    }
+
+/* Modificações nas marcações da agenda */
+
+.fc-day-grid-event .fc-content {
+    text-overflow: ellipsis;
+    font-size: .75rem;
+}
+
+.fc-popover {
+    z-index: 20;
+}
+
+    .fc-popover .fc-header {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        background-color: inherit;
+        font-size: 14px;
+    }
+
+/*** ADAPTAÇÃO DO LAYOUT PARA TELAS RESPONSIVAS ***/
+
+/* **TELAS PEQUENAS acima de 336px** */
+@media (min-width: 336px) {
+    .fc-center .fc-state-default {
+        font-size: .75rem;
+    }
+}
+
+/* **TELAS PEQUENAS acima de 474px** */
+@media (min-width: 474px) {
+    .fc-center .fc-state-default {
+        font-size: .875rem;
+    }
+}
+
+/* **TELAS MÉDIAS acima de 516px** */
+@media (min-width: 516px) {
+    .fc-center {
+        margin-top: 0;
+    }
+
+    .fc-header-toolbar h2 {
+        font-size: 1.5rem;
+        margin-bottom: .25rem;
+    }
+}
+
+/* **TELAS GRANDES acima de 992px** */
+@media (min-width: 992px) {
+    .fc-prev-button span, .fc-next-button span {
+        margin: 0 .5rem;
+    }
+}
+
+/**** Fim da personalização do Calendário ****/
