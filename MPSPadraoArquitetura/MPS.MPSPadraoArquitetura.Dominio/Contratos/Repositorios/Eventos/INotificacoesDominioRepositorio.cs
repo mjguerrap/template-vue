@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using MPS.MPSPadraoArquitetura.SharedKernel.EventosDominio.Eventos.Notificacoes;
+﻿using MPS.MPSPadraoArquitetura.Domain.Common.EventosDominio.Eventos.Notificacoes;
 
 namespace MPS.MPSPadraoArquitetura.Dominio.Contratos.Repositorios.Eventos
 {

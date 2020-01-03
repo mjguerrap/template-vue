@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MPS.MPSPadraoArquitetura.Common\MPS.MPSPadraoArquitetura.Domain.Common.csproj" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
   </ItemGroup>
+
 </Project>

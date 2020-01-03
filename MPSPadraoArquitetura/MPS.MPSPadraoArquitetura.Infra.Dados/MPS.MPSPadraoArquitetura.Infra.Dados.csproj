@@ -76,12 +76,16 @@
     <Compile Include="UnidadeTrabalho\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MPS.MPSPadraoArquitetura.Common\MPS.MPSPadraoArquitetura.Domain.Common.csproj">
+      <Project>{8A5D497A-6DB5-4042-8C41-2BE262CE7870}</Project>
+      <Name>MPS.MPSPadraoArquitetura.Domain.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MPS.MPSPadraoArquitetura.Dominio\MPS.MPSPadraoArquitetura.Dominio.csproj">
       <Project>{2dc5e69b-a996-45ea-9c2e-85711882d835}</Project>
       <Name>MPS.MPSPadraoArquitetura.Dominio</Name>
     </ProjectReference>
     <ProjectReference Include="..\MPS.MPSPadraoArquitetura.SharedKernel\MPS.MPSPadraoArquitetura.SharedKernel.csproj">
-      <Project>{71395C7C-FF03-4DE9-850D-FA11756C4449}</Project>
+      <Project>{71395c7c-ff03-4de9-850d-fa11756c4449}</Project>
       <Name>MPS.MPSPadraoArquitetura.SharedKernel</Name>
     </ProjectReference>
   </ItemGroup>

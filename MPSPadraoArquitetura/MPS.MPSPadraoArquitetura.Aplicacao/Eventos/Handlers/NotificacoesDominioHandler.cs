@@ -1,14 +1,13 @@
-﻿using System;
+﻿using MPS.MPSPadraoArquitetura.Domain.Common.EventosDominio.Eventos.Notificacoes;
+using MPS.MPSPadraoArquitetura.Dominio.Contratos.Repositorios.Eventos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using MPS.MPSPadraoArquitetura.Dominio.Contratos.Repositorios.Eventos;
-using MPS.MPSPadraoArquitetura.SharedKernel.EventosDominio.Eventos.Notificacoes;
-using MPS.MPSPadraoArquitetura.SharedKernel.EventosDominio.Eventos.Notificacoes.Handlers;
 
 namespace MPS.MPSPadraoArquitetura.Aplicacao.Eventos.Handlers
 {
-    public class NotificacoesDominioHandler : IDomainNotificationHandler<NotificacoesDominio>
-{
+	public class NotificacoesDominioHandler : Domain.Common.EventosDominio.Eventos.Notificacoes.Handlers.IDomainNotificationHandler<NotificacoesDominio>
+	{
 	private IList<NotificacoesDominio> _notifications;
 	private readonly INotificacoesDominioRepositorio _notificacoesDominioRepositorio;
 

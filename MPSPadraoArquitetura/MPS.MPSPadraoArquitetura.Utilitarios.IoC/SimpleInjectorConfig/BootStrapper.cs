@@ -1,9 +1,10 @@
-﻿using SimpleInjector;
-using MPS.MPSPadraoArquitetura.Aplicacao.Contratos.Audit;
+﻿using MPS.MPSPadraoArquitetura.Aplicacao.Contratos.Audit;
 using MPS.MPSPadraoArquitetura.Aplicacao.Contratos.Base;
 using MPS.MPSPadraoArquitetura.Aplicacao.Eventos.Handlers;
 using MPS.MPSPadraoArquitetura.Aplicacao.Servicos.Audit;
 using MPS.MPSPadraoArquitetura.Aplicacao.Servicos.Base;
+using MPS.MPSPadraoArquitetura.Domain.Common.EventosDominio.Eventos.Notificacoes;
+using MPS.MPSPadraoArquitetura.Domain.Common.EventosDominio.Eventos.Notificacoes.Handlers;
 using MPS.MPSPadraoArquitetura.Dominio.Contratos.Repositorios.Audit;
 using MPS.MPSPadraoArquitetura.Dominio.Contratos.Repositorios.Eventos;
 using MPS.MPSPadraoArquitetura.Infra.Dados.Contextos;
@@ -11,14 +12,12 @@ using MPS.MPSPadraoArquitetura.Infra.Dados.Repositorios.Audit;
 using MPS.MPSPadraoArquitetura.Infra.Dados.Repositorios.Eventos;
 using MPS.MPSPadraoArquitetura.Infra.Dados.UoW;
 using MPS.MPSPadraoArquitetura.SharedKernel.DataTables.Map;
-using MPS.MPSPadraoArquitetura.SharedKernel.EventosDominio.Eventos.Notificacoes;
-using MPS.MPSPadraoArquitetura.SharedKernel.EventosDominio.Eventos.Notificacoes.Handlers;
-using MPS.MPSPadraoArquitetura.SharedKernel.EventosDominio.Contratos;
 using MPS.MPSPadraoArquitetura.SharedKernel.Util;
+using SimpleInjector;
 
 namespace MPS.MPSPadraoArquitetura.Utilitarios.IoC.SimpleInjectorConfig
 {
-    public static class BootStrapper
+	public static class BootStrapper
 {
 	public static void RegisterServices(Container container)
 	{
@@ -100,7 +99,7 @@ namespace MPS.MPSPadraoArquitetura.Utilitarios.IoC.SimpleInjectorConfig
 
 	private static void RegistraSharedKernel(Container container)
 	{
-		container.Register<IValidaConfiguracao, ValidaConfiguracao>(Lifestyle.Singleton);
+		container.Register<MPS.MPSPadraoArquitetura.SharedKernel.EventosDominio.Contratos.IValidaConfiguracao, ValidaConfiguracao>(Lifestyle.Singleton);
 	}
 
 	#endregion SharedKernel

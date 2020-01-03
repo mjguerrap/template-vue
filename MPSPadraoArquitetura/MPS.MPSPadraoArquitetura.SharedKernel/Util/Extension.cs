@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -19,14 +19,14 @@ namespace MPS.MPSPadraoArquitetura.SharedKernel.Util
 	/// </summary>
 	/// <param name="files">HttpPostedFileBase[]</param>
 	/// <returns>byte[]</returns>
-	public static byte[] ToBytes(this HttpPostedFileBase[] files)
+	public static byte[] ToBytes(this List<IFormFile> files)
 	{
 		byte[] arraybytes = null;
 
-		foreach (HttpPostedFileBase file in files)
+		foreach (var file in files)
 		{
-			long numeroBytes = file.InputStream.Length;
-			using (BinaryReader br = new BinaryReader(file.InputStream))
+			long numeroBytes = file.Length;
+			using (BinaryReader br = new BinaryReader(file.OpenReadStream()))
 			{
 				arraybytes = br.ReadBytes((int)numeroBytes);
 			}
@@ -40,11 +40,11 @@ namespace MPS.MPSPadraoArquitetura.SharedKernel.Util
 	/// </summary>
 	/// <param name="file">HttpPostedFileBase</param>
 	/// <returns>byte[]</returns>
-	public static byte[] ToBytes(this HttpPostedFileBase file)
+	public static byte[] ToBytes(this IFormFile file)
 	{
 		using (MemoryStream memoryStream = new MemoryStream())
 		{
-			file.InputStream.CopyTo(memoryStream);
+			file.OpenReadStream().CopyTo(memoryStream);
 			return memoryStream.ToArray();
 		}
 	}
@@ -130,23 +130,7 @@ namespace MPS.MPSPadraoArquitetura.SharedKernel.Util
 		return true;
 	}
 
-	/// <summary>
-	/// Converter Arry de Bytes em imagem
-	/// Caso seja gerado algum "ArgumentException" o retorno será null.
-	/// </summary>
-	/// <param name="bytes">byte[] </param>
-	/// <returns>Image</returns>
-	public static Image ToByteArrayToImage(this byte[] bytes)
-	{
-		if (bytes == null)
-		{
-			return null;
-		}
-		using (MemoryStream ms = new MemoryStream(bytes))
-		{
-			return Image.FromStream(ms);
-		}
-	}
+	
 
 	/// <summary>
 	/// Verificar se o paramentro está entre o intervalo informado

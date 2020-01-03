@@ -135,6 +135,10 @@
       <Project>{dc4be0ef-96bc-4a07-8316-e05e40d74314}</Project>
       <Name>MPS.MPSPadraoArquitetura.Aplicacao</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MPS.MPSPadraoArquitetura.Common\MPS.MPSPadraoArquitetura.Domain.Common.csproj">
+      <Project>{8A5D497A-6DB5-4042-8C41-2BE262CE7870}</Project>
+      <Name>MPS.MPSPadraoArquitetura.Domain.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MPS.MPSPadraoArquitetura.Dominio\MPS.MPSPadraoArquitetura.Dominio.csproj">
       <Project>{2dc5e69b-a996-45ea-9c2e-85711882d835}</Project>
       <Name>MPS.MPSPadraoArquitetura.Dominio</Name>

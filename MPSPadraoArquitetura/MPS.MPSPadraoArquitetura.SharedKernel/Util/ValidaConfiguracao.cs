@@ -1,4 +1,6 @@
-﻿using MPS.MPSPadraoArquitetura.SharedKernel.Base.Retorno;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Caching.Memory;
+using MPS.MPSPadraoArquitetura.SharedKernel.Base.Retorno;
 using MPS.MPSPadraoArquitetura.SharedKernel.EventosDominio.Contratos;
 using MPS.MPSPadraoArquitetura.SharedKernel.Validacoes;
 using System;
@@ -6,15 +8,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.Caching;
 using System.ServiceModel;
 using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.Caching;
-using System.Web;
+using MemoryCache = System.Runtime.Caching.MemoryCache;
 
 namespace MPS.MPSPadraoArquitetura.SharedKernel.Util
 {
-    public class ValidaConfiguracao : IValidaConfiguracao
+	public class ValidaConfiguracao : IValidaConfiguracao
 {
 	#region Configuração
 
@@ -192,11 +193,7 @@ namespace MPS.MPSPadraoArquitetura.SharedKernel.Util
 			if (!Equals(OperationContext.Current, null))
 			{
 				return OperationContext.Current.IncomingMessageHeaders.To.Host;
-			}
-			if (!Equals(HttpContext.Current, null))
-			{
-				return HttpContext.Current.Request.Url.Host;
-			}
+			}			
 		}
 		return null;
 	}
@@ -281,7 +278,7 @@ namespace MPS.MPSPadraoArquitetura.SharedKernel.Util
 				else
 				{
 					listChaveBanco = chaveBanco.Replace(" ", "").Split(',').ToList();
-					MemoryCache.Default.Add("ChaveBanco", listChaveBanco, new CacheItemPolicy { AbsoluteExpiration = DateTimeOffset.Now.AddHours(1) });
+						MemoryCache.Default.Add("ChaveBanco", listChaveBanco, new CacheItemPolicy { AbsoluteExpiration = DateTimeOffset.Now.AddHours(1) });
 				}
 
 			}

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using MPS.MPSPadraoArquitetura.SharedKernel.Enum.Base;
+﻿using MPS.MPSPadraoArquitetura.Domain.Common.Enum.Base;
 
 namespace MPS.MPSPadraoArquitetura.Dominio.Entidades.Base
 {
-    public class BaseId
+	public class BaseId
 {
 	public int Id { get; set; }
 

@@ -4,48 +4,7 @@ using System.Security.Cryptography;
 
 namespace MPS.MPSPadraoArquitetura.SharedKernel.Util
 {
-    public static class SHA1Helper
-{
-	public static void CodificarParaSha1(System.Web.UI.Page pagina, System.Web.UI.Control controleParaCodificar)
-	{
-		System.Web.UI.ClientScriptManager csm = pagina.ClientScript;
-
-		if (!csm.IsClientScriptIncludeRegistered("includeSHA1"))
-		{
-			csm.RegisterClientScriptInclude(typeof(String), "includeSHA1", "Scripts/sha1.js");
-		}
-
-		if (!csm.IsClientScriptBlockRegistered(typeof(String), "scriptParaCodificar"))
-		{
-			StringBuilder script = new StringBuilder();
-
-			// frase de seguranca
-			script.Append("function CodificarParaSHA1(controlId){");
-			script.Append("var xsha1 = ");
-			script.Append("document.getElementById(controlId);");
-			script.Append("if(xsha1 != null && xsha1.value != null && xsha1.value != '' )");
-			script.Append("xsha1.value = hex_sha1(xsha1.value);");
-			script.Append("}");
-
-			csm.RegisterClientScriptBlock(typeof(String), "scriptParaCodificar", script.ToString(), true);
-		}
-
-		String idDoCliente = controleParaCodificar.ClientID;
-
-		if (csm.IsOnSubmitStatementRegistered(typeof(String), "keyCodificar" + idDoCliente))
-		{
-			return;
-		}
-
-
-		// Codifica controle para SHA1
-		StringBuilder scriptControle = new StringBuilder();
-		scriptControle.Append("CodificarParaSHA1('");
-		scriptControle.Append(idDoCliente);
-		scriptControle.Append("');");
-
-		csm.RegisterOnSubmitStatement(typeof(String), "keyCodificar" + idDoCliente, scriptControle.ToString());
-	}
+    public static class SHA1Helper { 
 
 	public static string Sha1String(string text)
 	{

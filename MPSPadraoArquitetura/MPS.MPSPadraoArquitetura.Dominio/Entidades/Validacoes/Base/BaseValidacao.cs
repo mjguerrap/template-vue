@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using MPS.MPSPadraoArquitetura.SharedKernel.Validacoes;
+using MPS.MPSPadraoArquitetura.Domain.Common.Validacoes;
 
 namespace MPS.MPSPadraoArquitetura.Dominio.Entidades.Validacoes.Base
 {

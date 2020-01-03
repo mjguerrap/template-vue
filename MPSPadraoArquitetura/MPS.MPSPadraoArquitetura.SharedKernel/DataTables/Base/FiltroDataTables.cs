@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Web;
 
@@ -23,16 +24,16 @@ namespace MPS.MPSPadraoArquitetura.SharedKernel.DataTables.Base
 		SortOrder = sortOrder;
 	}
 
-	public FiltroDataTables(HttpRequestBase request)
+	public FiltroDataTables(HttpContext request)
 	{
 		if (request != null)
 		{
-			Draw = Convert.ToInt32(request.QueryString["draw"]);
-			Start = Convert.ToInt32(request.QueryString["start"]);
-			Length = Convert.ToInt32(request.QueryString["length"]);
-			Search = request.QueryString["search[value]"];
-			Column = request.QueryString["columns[" + request.QueryString["order[0][column]"] + "][data]"];
-			SortOrder = request.QueryString["order[0][dir]"];
+			Draw = Convert.ToInt32(request.Request.Query["draw"]);
+			Start = Convert.ToInt32(request.Request.Query["start"]);
+			Length = Convert.ToInt32(request.Request.Query["length"]);
+			Search = request.Request.Query["search[value]"];
+			Column = request.Request.Query["columns[" + request.Request.Query["order[0][column]"] + "][data]"];
+			SortOrder = request.Request.Query["order[0][dir]"];
 		}
 	}
 }

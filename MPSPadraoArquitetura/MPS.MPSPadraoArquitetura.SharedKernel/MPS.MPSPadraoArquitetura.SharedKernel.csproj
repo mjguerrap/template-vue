@@ -1,95 +1,22 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{71395C7C-FF03-4DE9-850D-FA11756C4449}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MPS.MPSPadraoArquitetura.SharedKernel</RootNamespace>
-    <AssemblyName>MPS.MPSPadraoArquitetura.SharedKernel</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\..\MPSArquitetura.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\..\MPSArquitetura.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Caching" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="System.Runtime.Caching" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MPS.MPSPadraoArquitetura.Common\MPS.MPSPadraoArquitetura.Domain.Common.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\Retorno\BaseRetorno.cs" />
-    <Compile Include="DataTables\Base\DatatableMapColum.cs" />
-    <Compile Include="DataTables\Base\FiltroDataTables.cs" />
-    <Compile Include="DataTables\Base\JqueryDataTableUI.cs" />
-    <Compile Include="DataTables\Map\AuditLogDataTablesMap.cs" />
-    <Compile Include="Enum\Audit\OperacaoEnum.cs" />
-    <Compile Include="Enum\Base\StatusRegistroEnum.cs" />
-    <Compile Include="EventosDominio\Contratos\IContainer.cs" />
-    <Compile Include="EventosDominio\Contratos\IHandler.cs" />
-    <Compile Include="EventosDominio\Contratos\IValidaConfiguracao.cs" />
-    <Compile Include="EventosDominio\Eventos\Entidades\EventoDominio.cs" />
-    <Compile Include="EventosDominio\Eventos\Entidades\Evento.cs" />
-    <Compile Include="EventosDominio\Eventos\Notificacoes\NotificacoesDominio.cs" />
-    <Compile Include="EventosDominio\Eventos\Notificacoes\Handlers\INotificacoesDominioHandler.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resource\MensagensPadrao.Designer.cs">
-      <DependentUpon>MensagensPadrao.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Util\Constantes.cs" />
-    <Compile Include="Util\Criptografia.cs" />
-    <Compile Include="Util\Extension.cs" />
-    <Compile Include="Util\QueryHelper.cs" />
-    <Compile Include="Util\SHA1Helper.cs" />
-    <Compile Include="Util\StringConnection.cs" />
-    <Compile Include="Util\ValidaConfiguracao.cs" />
-    <Compile Include="Validacoes\ValidacoesDominio.cs" />
+    <Folder Include="Base\" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resource\MensagensPadrao.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>MensagensPadrao.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

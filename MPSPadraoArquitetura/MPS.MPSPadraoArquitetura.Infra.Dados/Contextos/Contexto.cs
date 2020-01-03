@@ -24,7 +24,7 @@ namespace MPS.MPSPadraoArquitetura.Infra.Dados.Contextos
 
 	#region Propriedades do Sistema
 
-	public DbSet<NotificacoesDominio> NotificacoesDominio { get; set; }
+	public DbSet<Domain.Common.EventosDominio.Eventos.Notificacoes.NotificacoesDominio> NotificacoesDominio { get; set; }
 
 	//public DbSet<{NomeEntidade}> {NomeEntidade} { get; set; }
 
